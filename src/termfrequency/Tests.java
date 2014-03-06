@@ -3,11 +3,13 @@ package termfrequency;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class Tests {
+	
 	@Test
 	public void stopWordsAreNotCounted() {
 		StopWords sw = new StopWords("the");
@@ -58,19 +60,30 @@ public class Tests {
 		Ranking ranking = new Ranking(2);
 		ranking.add(new Word("a"), new Frequency(2));
 		ranking.add(new Word("b"), new Frequency(1));
-		List<Entry> pairs = new ArrayList<>();
-		for (Entry pair: ranking) {
-			pairs.add(pair);
+		Entry prev = null;
+		for (Entry entry: ranking) {
+			assertTrue(prev == null || prev.compareTo(entry) > 0);
+			prev = entry;
 		}
-		Entry a = pairs.get(0);
-		Entry b = pairs.get(1);
-		assertTrue(a.hasWord(new Word("a")));
-		assertTrue(b.hasWord(new Word("b")));
-		assertTrue(a.compareTo(b) > 0);
 	}
 	
 	@Test
 	public void rankingsAreNotLargerThanAskedFor() {
-		// todo;
+		int askForSmallRanking = 2;
+		Ranking ranking = new Ranking(askForSmallRanking);
+		ranking.add(new Word("a"), new Frequency(2));
+		ranking.add(new Word("b"), new Frequency(1));
+		ranking.add(new Word("c"), new Frequency(0));
+		assertEquals(askForSmallRanking, ranking.size());
+	}
+	
+	@Test
+	public void rankingsAreNotLargeThanTheirSize() {
+		int askForBigRanking = 10;
+		Ranking ranking = new Ranking(askForBigRanking);
+		ranking.add(new Word("a"), new Frequency(2));
+		ranking.add(new Word("b"), new Frequency(1));
+		ranking.add(new Word("c"), new Frequency(0));
+		assertEquals(3, ranking.size());
 	}
 }
