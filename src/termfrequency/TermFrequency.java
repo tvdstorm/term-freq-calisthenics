@@ -2,7 +2,7 @@ package termfrequency;
 
 
 public class TermFrequency {
-	private static final int MINIMUM_LENGTH = 2;
+	private static final int MINIMUM_WORD_LENGTH = 2;
 	private Source source;
 	private StopWords stopWords;
 
@@ -24,11 +24,11 @@ public class TermFrequency {
 	}
 
 	private boolean isIgnored(Word word) {
-		return isStopWord(word) || isTooShort(word);
+		return isStopWord(word) || isTiny(word);
 	}
 
-	private boolean isTooShort(Word word) {
-		return word.length() < MINIMUM_LENGTH;
+	private boolean isTiny(Word word) {
+		return word.length() < MINIMUM_WORD_LENGTH;
 	}
 
 	private boolean isStopWord(Word word) {

@@ -73,8 +73,5 @@ public class Main {
 		    line = br.readLine();
 		}
 	}
-
-	
-
 	
 }
