@@ -1,4 +1,4 @@
-package calisth;
+package termfrequency;
 
 import static java.lang.Math.min;
 
@@ -8,8 +8,8 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Ranking implements Iterable<Entry> {
-	private int maximumSize;
-	private List<Entry> entries;
+	private final int maximumSize;
+	private final List<Entry> entries;
 
 	public Ranking(int maximumSize) {
 		assert maximumSize >= 0;

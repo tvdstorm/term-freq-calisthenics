@@ -1,4 +1,4 @@
-package calisth;
+package termfrequency;
 
 
 public class TermFrequency {

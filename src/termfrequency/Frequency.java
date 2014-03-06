@@ -1,4 +1,4 @@
-package calisth;
+package termfrequency;
 
 public class Frequency implements Comparable<Frequency> {
 	private int value;

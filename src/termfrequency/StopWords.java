@@ -1,10 +1,10 @@
-package calisth;
+package termfrequency;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class StopWords {
-	private Set<Word> stopWords;
+	private final Set<Word> stopWords;
 
 	public StopWords(String stopWordsText) {
 		this.stopWords = new HashSet<Word>();

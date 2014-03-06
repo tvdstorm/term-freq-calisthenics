@@ -1,4 +1,4 @@
-package calisth;
+package termfrequency;
 
 import java.util.ArrayList;
 import java.util.List;

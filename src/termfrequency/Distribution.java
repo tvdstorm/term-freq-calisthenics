@@ -1,11 +1,11 @@
-package calisth;
+package termfrequency;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
 public class Distribution  {
-	private Map<Word,Frequency> table;
+	private final Map<Word,Frequency> table;
 	
 	public Distribution() {
 		this.table = new HashMap<Word, Frequency>();
